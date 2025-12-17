@@ -132,7 +132,7 @@ export function MatchingGraph({ mode, firms, websites, matches }: MatchingGraphP
           </span>
         </div>
         <span className="text-[11px] text-slate-500">
-          매칭 라인 위에 마우스를 올리면 입찰·AI 점수가 표시됩니다.
+          매칭 라인 근처에 적합도가 표시됩니다.
         </span>
       </div>
 
@@ -292,15 +292,15 @@ export function MatchingGraph({ mode, firms, websites, matches }: MatchingGraphP
             </span>
           </p>
           <p className="text-[10px] text-slate-300">
-            AI 적합도 점수:{' '}
+            적합도 점수:{' '}
             <span className={isRTB ? 'text-slate-100' : 'text-emerald-300'}>
               {formatAffinity(hover.match.affinity)} / 100
             </span>
           </p>
           <p className="mt-1 text-[10px] text-slate-500">
             {isRTB
-              ? '높은 입찰가 때문에 낮은 적합도에도 불구하고 노출을 가져가는 구조입니다.'
-              : '양측 선호와 AI 적합도를 반영하여 더 의미 있는 매칭만 남은 상태입니다.'}
+              ? '높은 입찰가로 인해 낮은 적합도에도 불구하고 광고 노출을 가져가는 구조입니다.'
+              : '양방향 선호와 적합도를 반영하여 유의미한 광고 노출이 남은 상태입니다.'}
           </p>
         </div>
       )}

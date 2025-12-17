@@ -40,7 +40,7 @@ export const firms: Firm[] = [
   },
   {
     id: '2',
-    name: '룩옵티컬 안경',
+    name: '젠틀몬스터',
     category: 'Living/Health',
     targetAge: 45,
     targetAgeRange: makeRange(45),
@@ -49,7 +49,7 @@ export const firms: Firm[] = [
   },
   {
     id: '3',
-    name: '녹십자 제약',
+    name: '적십자제약',
     category: 'Living/Health',
     targetAge: 55,
     targetAgeRange: makeRange(55),
@@ -58,7 +58,7 @@ export const firms: Firm[] = [
   },
   {
     id: '4',
-    name: '손오공 완구',
+    name: '하츄핑',
     category: 'Hobby/Fun',
     targetAge: 32, // 부모 타겟
     targetAgeRange: makeRange(32),
@@ -67,7 +67,7 @@ export const firms: Firm[] = [
   },
   {
     id: '5',
-    name: '캐논 카메라',
+    name: '소니',
     category: 'Hobby/Fun',
     targetAge: 30,
     targetAgeRange: makeRange(30),
@@ -76,7 +76,7 @@ export const firms: Firm[] = [
   },
   {
     id: '6',
-    name: '종근당 키즈 비타민',
+    name: '종근당비타민',
     category: 'Living/Health',
     targetAge: 38,
     targetAgeRange: makeRange(38),
@@ -85,7 +85,7 @@ export const firms: Firm[] = [
   },
   {
     id: '7',
-    name: '넥슨 RPG 게임',
+    name: '넥슨',
     category: 'Hobby/Fun',
     targetAge: 18,
     targetAgeRange: makeRange(18),
@@ -94,7 +94,7 @@ export const firms: Firm[] = [
   },
   {
     id: '8',
-    name: '무신사 스토어',
+    name: '무신사',
     category: 'Fashion/Shop',
     targetAge: 20,
     targetAgeRange: makeRange(20),
@@ -114,7 +114,7 @@ export const websites: Website[] = [
   },
   {
     id: '2',
-    name: '네이버 밴드/카페',
+    name: '밴드',
     category: 'Living/Health',
     audienceAge: 48,
     audienceAgeRange: makeRange(48),
@@ -122,7 +122,7 @@ export const websites: Website[] = [
   },
   {
     id: '3',
-    name: '네이버 웹툰',
+    name: '네이버웹툰',
     category: 'Hobby/Fun',
     audienceAge: 16,
     audienceAgeRange: makeRange(16),
@@ -130,7 +130,7 @@ export const websites: Website[] = [
   },
   {
     id: '4',
-    name: '네이버 뉴스',
+    name: '연합뉴스',
     category: 'Living/Health',
     audienceAge: 52,
     audienceAgeRange: makeRange(52),
@@ -138,7 +138,7 @@ export const websites: Website[] = [
   },
   {
     id: '5',
-    name: '디시인사이드 갤러리',
+    name: '디시인사이드',
     category: 'Hobby/Fun',
     audienceAge: 26,
     audienceAgeRange: makeRange(26),
@@ -146,7 +146,7 @@ export const websites: Website[] = [
   },
   {
     id: '6',
-    name: '플래시 게임 사이트',
+    name: '와플래시',
     category: 'Hobby/Fun',
     audienceAge: 12,
     audienceAgeRange: makeRange(12),
@@ -154,7 +154,7 @@ export const websites: Website[] = [
   },
   {
     id: '7',
-    name: '쿠팡 쇼핑',
+    name: '쿠팡',
     category: 'Fashion/Shop',
     audienceAge: 34,
     audienceAgeRange: makeRange(34),
@@ -162,7 +162,7 @@ export const websites: Website[] = [
   },
   {
     id: '8',
-    name: '위버스 팬 커뮤니티',
+    name: '위버스',
     category: 'Fashion/Shop',
     audienceAge: 16,
     audienceAgeRange: makeRange(16),

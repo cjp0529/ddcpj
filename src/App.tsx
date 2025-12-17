@@ -86,12 +86,12 @@ function App() {
           </div>
           <div className="space-y-2 border-t border-slate-800/60 pt-4">
             <h1 className="text-xl font-semibold tracking-tight text-slate-50 md:text-2xl lg:text-3xl">
-              국내 디지털 광고 RTB vs Gale-Shapley 매칭 분석
+              DDC: 광고 시장 독점 개선 및 Gale-Shapley 제안
             </h1>
             <p className="max-w-3xl text-[13px] leading-relaxed text-slate-300 md:text-sm">
-              아모레퍼시픽, 무신사 스토어, 넥슨, 쿠팡과 같은 실제 브랜드를 가상의 예산·입찰 데이터로
-              모델링한 뒤, 실시간 입찰(RTB)과 Gale-Shapley 안정 매칭이 어떤 다른 노출 구조를
-              만들어내는지를 정량적으로 비교합니다.
+              실제 브랜드를 가상 예산 및 입찰 데이터로 모델링하여
+              RTB 방식과 Gale-Shapley 방식의 광고 노출 차이를
+              정량적으로 비교합니다.
             </p>
           </div>
         </header>
@@ -103,17 +103,17 @@ function App() {
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-sky-500/90 text-slate-50">
                 <BarChart3 className="h-4 w-4" />
               </span>
-              제어 패널 · 실험 조건
+              브랜드 매체 제어 패널
             </div>
             <p className="hidden text-[11px] text-slate-400 md:block">
-              선택한 조합에 따라 RTB 경매 결과와 Gale-Shapley 안정 매칭 결과가 동시에 갱신됩니다.
+              * 선택한 결과에 따라 RTB 방식과 Gale-Shapley 방식이 동시에 갱신됨.
             </p>
           </div>
 
           <div className="grid gap-4 lg:grid-cols-[2.2fr,1.3fr]">
             <div className="grid gap-4 md:grid-cols-2">
               <SelectorPanel
-                title="광고주"
+                title="브랜드"
                 items={ALL_FIRMS}
                 selectedIds={selectedFirmIds}
                 onToggle={handleToggleFirm}
@@ -130,19 +130,18 @@ function App() {
 
             <div className="flex flex-col justify-between gap-3 rounded-2xl border border-slate-800 bg-slate-950/90 p-4">
               <div className="space-y-2 text-sm text-slate-200">
-                <p className="font-semibold">현재 실험 상태</p>
+                <p className="font-semibold">시뮬레이션 현황</p>
                 <p className="text-xs text-slate-300">
-                  선택된 광고주:{' '}
+                  채택된 브랜드:{' '}
                   <span className="font-semibold text-sky-300">{selectedFirms.length}</span> /{' '}
-                  {MAX_SELECTION} · 선택된 매체:{' '}
+                  {MAX_SELECTION} · 채택된 매체:{' '}
                   <span className="font-semibold text-sky-300">{selectedWebsites.length}</span> /{' '}
                   {MAX_SELECTION}
                 </p>
                 <p className="hidden text-[11px] leading-relaxed text-slate-400 md:block">
-                  아모레퍼시픽 (Whale)은 예산이 매우 크고 입찰가가 높지만, 패션/쇼핑이 아닌 매체에
-                  대해서는 AI 적합도 점수가 낮도록 설계되어 있습니다. RTB에서는 이 Whale이 여러
-                  매체를 독점하는 반면, Gale-Shapley에서는 각 매체에 더 잘 맞는 광고주에게 노출이
-                  재배치됩니다.
+                  독점 기업은 고예산 고입찰가의 형태를 띄어 낮은 적합도의 매체의 광고 노출을 점합니다.
+                  RTB 방식에서는 이 독점 기업이 여러 매체를 독점하는 반면,
+                  Gale-Shapley 방식에서는 각 매체에 더 잘 맞는 브랜드가 광고 노출됩니다.
                 </p>
               </div>
 
@@ -157,17 +156,11 @@ function App() {
                       : 'cursor-not-allowed bg-slate-800 text-slate-500'
                   }`}
                 >
-                  시뮬레이션 실행
+                  시뮬레이션
                 </button>
                 <span className="text-[11px] leading-relaxed">
-                  정확히 4개의 광고주와 4개의 매체를 선택해야 시뮬레이션을 실행할 수 있습니다.
+                  각각 4개의 브랜드와 매체를 선택하십시오.
                 </span>
-                {hasMonopoly && (
-                  <span className="inline-flex items-center gap-1 text-[11px] text-red-400">
-                    ● RTB 기준으로 현재 구성에서는 Whale 광고주가 여러 매체를 가져갈 가능성이 매우
-                    큽니다.
-                  </span>
-                )}
               </div>
             </div>
           </div>
@@ -181,10 +174,9 @@ function App() {
               <div className="rounded-2xl border border-red-500/40 bg-gradient-to-b from-red-950/70 via-slate-950/80 to-slate-950/90 p-4 shadow-xl shadow-red-900/30">
                 <div className="mb-3 flex items-center justify-between text-xs text-red-200">
                   <div className="space-y-1">
-                    <p className="font-semibold">RTB · Whale 독점 시나리오</p>
+                    <p className="font-semibold">RTB 방식의 독점 현황</p>
                     <p className="text-[11px] text-red-100/80">
-                      입찰가만을 기준으로 한 실시간 경매에서, 자본력이 큰 광고주가 어떻게 여러 매체를
-                      한 번에 잠식하는지 확인할 수 있습니다.
+                      입찰가를 기준으로 하는 RTB 방식에서 자본력이 큰 브랜드가 광고 노출을 독점합니다.
                     </p>
                   </div>
                   <div className="rounded-full bg-red-900/60 px-3 py-1 text-[10px] text-red-100">
@@ -203,14 +195,14 @@ function App() {
               <div className="rounded-2xl border border-emerald-500/40 bg-gradient-to-b from-emerald-950/60 via-slate-950/80 to-slate-950/90 p-4 shadow-xl shadow-emerald-900/30">
                 <div className="mb-3 flex items-center justify-between text-xs text-emerald-100">
                   <div className="space-y-1">
-                    <p className="font-semibold">Gale-Shapley · 안정 매칭 시나리오</p>
+                    <p className="font-semibold">Gale-Shapley 방식 안정 현황</p>
                     <p className="text-[11px] text-emerald-100/80">
-                      양측 선호(입찰 + AI 적합도)를 모두 반영한 1:1 안정 매칭 구조에서, 각 매체가
-                      가장 잘 맞는 광고주와 연결되며 노출이 보다 고르게 분배됩니다.
+                      양방향 선호를 반영한 일 대 일 안정 매칭에 따라 각 매체가
+                      가장 잘 맞는 브랜드와 연결되어 광고 노출이 고르게 분배됩니다.
                     </p>
                   </div>
                   <div className="rounded-full bg-emerald-900/60 px-3 py-1 text-[10px] text-emerald-100">
-                    Stable · 1:1 Matching
+                    Gale-Shapley
                   </div>
                 </div>
                 <MatchingGraph
@@ -226,9 +218,9 @@ function App() {
             <section className="rounded-2xl border border-slate-800 bg-slate-950/80 p-4 shadow-lg shadow-slate-900/40">
               <div className="mb-3 flex items-center justify-between gap-2">
                 <div className="space-y-1">
-                  <p className="text-sm font-semibold text-slate-100">지표 대시보드 · 과학적 비교</p>
+                  <p className="text-sm font-semibold text-slate-100">시뮬레이션 보드</p>
                   <p className="text-[11px] text-slate-400">
-                    좌측 차트는 시장 집중도(지니 계수), 우측 차트는 생태계 전체 만족도(AI Affinity 합계)를
+                    좌측 차트는 지니 계수, 우측 차트는 광고 시장 생태계 만족도를
                     보여줍니다.
                   </p>
                 </div>
@@ -240,9 +232,9 @@ function App() {
           <section className="rounded-2xl border border-dashed border-slate-800 bg-slate-950/60 p-6 text-center text-sm text-slate-400">
             <p className="font-medium text-slate-200">시뮬레이션이 아직 실행되지 않았습니다.</p>
             <p className="mt-1 text-[12px]">
-              상단 제어 패널에서 4개의 광고주와 4개의 매체를 선택한 뒤{' '}
-              <span className="font-semibold text-sky-400">“시뮬레이션 실행”</span> 버튼을 누르면,
-              RTB와 Gale-Shapley 결과가 네트워크 그래프와 지표 대시보드에 동시에 표시됩니다.
+              상단 제어 패널에서 4개의 브랜드와 4개의 매체를 선택한 뒤{' '}
+              <span className="font-semibold text-sky-400">“시뮬레이션”</span> 버튼을 누르면
+              RTB와 Gale-Shapley 결과가 네트워크 그래프와 시뮬레이션 보드에 동시에 표시됩니다.
             </p>
           </section>
         )}
@@ -275,7 +267,7 @@ function SelectorPanel({ title, items, selectedIds, onToggle, maxSelection }: Se
       <p className="text-[11px] text-slate-400">
         {remaining > 0
           ? `추가로 ${remaining}개까지 선택할 수 있습니다.`
-          : '최대 개수에 도달했습니다. 선택을 변경하려면 기존 선택을 해제하세요.'}
+          : '최대 개수에 도달했습니다. 선택을 변경하려면 기존 선택을 해제하십시오.'}
       </p>
       <div className="mt-1 grid gap-2 sm:grid-cols-2">
         {items.map((item) => {
