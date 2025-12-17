@@ -223,7 +223,7 @@ export function MatchingGraph({ mode, firms, websites, matches }: MatchingGraphP
                   fontSize={9}
                   fill="#64748b"
                 >
-                  타깃 {firm.targetAge}세
+                  타겟 {firm.targetAge}세
                 </text>
               </g>
             )
@@ -299,8 +299,8 @@ export function MatchingGraph({ mode, firms, websites, matches }: MatchingGraphP
           </p>
           <p className="mt-1 text-[10px] text-slate-500">
             {isRTB
-              ? '높은 입찰가로 인해 낮은 적합도에도 불구하고 광고 노출을 가져가는 구조입니다.'
-              : '양방향 선호와 적합도를 반영하여 유의미한 광고 노출이 남은 상태입니다.'}
+              ? '* 높은 입찰가로 인해 낮은 적합도에도 불구하고 광고 노출을 가져가는 구조임.'
+              : '* 양방향 선호와 적합도를 반영하여 유의미한 광고 노출이 남은 상태임.'}
           </p>
         </div>
       )}

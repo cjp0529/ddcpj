@@ -48,7 +48,7 @@ export function StatsPanel({ rtbResult, gsResult, firms }: StatsPanelProps) {
           지니 계수
         </div>
         <p className="hidden text-[11px] leading-relaxed text-slate-300 md:block">
-          낮을수록 광고 노출이 공정한 것이고 높을수록 광고 시장이 독점 형태를 띕니다.
+          * 낮을수록 광고 노출이 공정한 것 / 높을수록 광고 시장이 독점 형태
         </p>
         <div className="h-40">
           <ResponsiveContainer width="100%" height="100%">
@@ -131,7 +131,7 @@ export function StatsPanel({ rtbResult, gsResult, firms }: StatsPanelProps) {
         </div>
 
         <div className="mt-3 rounded-lg border border-emerald-500/40 bg-emerald-900/10 px-3 py-2 text-[11px] text-emerald-100">
-          <p className="font-semibold">Gale-Shapley 방식 광고 노출 만족도 개선</p>
+          <p className="font-semibold">Gale-Shapley 방식 광고 노출 만족도 개선 비율</p>
           <p className="mt-1">
             광고 노출 만족도 비율:{' '}
             <span className="font-semibold">
