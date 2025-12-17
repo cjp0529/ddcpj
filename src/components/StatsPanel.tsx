@@ -10,7 +10,13 @@ interface StatsPanelProps {
   firms: Firm[]
 }
 
-const formatPercent = (value: number): string => `${(value * 100).toFixed(1)}%`
+// Recharts의 formatter/tickFormatter는 value를 number | string | undefined 등으로 전달할 수 있으므로
+// 타입을 any로 넉넉하게 두고 내부에서 숫자로 변환합니다.
+const formatPercent = (value: any): string => {
+  const num = typeof value === 'number' ? value : Number(value ?? 0)
+  const safe = Number.isNaN(num) ? 0 : num
+  return `${(safe * 100).toFixed(1)}%`
+}
 
 export function StatsPanel({ rtbResult, gsResult, firms }: StatsPanelProps) {
   const rtbGini = computeMarketFairnessGini(rtbResult, firms)
@@ -52,11 +58,13 @@ export function StatsPanel({ rtbResult, gsResult, firms }: StatsPanelProps) {
               <XAxis dataKey="name" tick={{ fill: '#cbd5f5', fontSize: 11 }} />
               <YAxis
                 domain={[0, 1]}
-                tickFormatter={formatPercent}
+                // value 타입이 number | string | undefined 일 수 있으므로 any 사용
+                tickFormatter={(value: any) => formatPercent(value)}
                 tick={{ fill: '#94a3b8', fontSize: 10 }}
               />
               <Tooltip
-                formatter={(value: number) => formatPercent(value)}
+                // value 타입을 any 로 받아 안전하게 처리
+                formatter={(value: any) => formatPercent(value)}
                 contentStyle={{
                   backgroundColor: '#020617',
                   borderColor: '#1e293b',
@@ -90,11 +98,14 @@ export function StatsPanel({ rtbResult, gsResult, firms }: StatsPanelProps) {
             <BarChart data={satisfactionData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
               <XAxis dataKey="name" tick={{ fill: '#cbd5f5', fontSize: 11 }} />
-              <YAxis
-                tick={{ fill: '#94a3b8', fontSize: 10 }}
-              />
+              <YAxis tick={{ fill: '#94a3b8', fontSize: 10 }} />
               <Tooltip
-                formatter={(value: number) => (value as number).toFixed(1)}
+                // value 가 number | string | undefined 일 수 있으므로 any 로 받고 숫자로 변환
+                formatter={(value: any) => {
+                  const num = typeof value === 'number' ? value : Number(value ?? 0)
+                  const safe = Number.isNaN(num) ? 0 : num
+                  return safe.toFixed(1)
+                }}
                 contentStyle={{
                   backgroundColor: '#020617',
                   borderColor: '#1e293b',
