@@ -91,7 +91,7 @@ function App() {
             <p className="max-w-3xl text-[13px] leading-relaxed text-slate-300 md:text-sm">
               실제 브랜드를 가상 예산 및 입찰 데이터로 모델링하여
               RTB 방식과 Gale-Shapley 방식의
-              광고 노출 차이를 정량적으로 비교하는 시뮬레이션
+              광고 노출 차이를 비교하는 시뮬레이션
             </p>
           </div>
         </header>
